@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.academiadecodigo.bootcamp.model.Entity" table="facility" lazy="false">
+
+        <id name="ID" column="facility_id" type="integer">
+            <generator class="identity"/>
+        </id>
+
+        <property name="name" column="facility_name" type="string"/>
+        <property name="password" column="facility_pass" type="string"/>
+        <property name="type" column="facility_type" type="string"/>
+        <property name="address" column="facility_address" type="string"/>
+        <property name="info" column="facility_info" type="string"/>
+        <property name="phone" column="facility_phone" type="string"/>
+
+    </class>
+
+</hibernate-mapping>
+
