@@ -20,52 +20,44 @@
 <body>
 <img src="https://media.giphy.com/media/14aa5GbbHT3bHO/giphy.gif"/>
 
-<form:form class="form" method="post" action="user/add" modelAttribute="user">
-
-    <p> Name: <form:input  path="username"/></p>
-    <p> Email: <form:input path="email"/></p>
-    <p> Password: <form:password path="password"/></p>
-
-
-    <p><c:if test="${empty user.username}"></p>
-    <form:button class="btn btn-primary">Add</form:button>
-
-    <p></c:if></p>
-    <p> <c:if test="${not empty user.username}"></p>
-    <form:button class="btn btn-primary">Update</form:button>
-    <p> </c:if></p>
-
-    <button class="btn btn-warning"><a href="user/reset">Reset</a></button>
-    </head>
-
-</form:form>
-
 <h3 class="toast">${greeting}</h3>
 
-<h3 class="text-info">List of Users:</h3>
+<h3 class="text-info">List of your Reservations:</h3>
 <c:if test="${not empty users}">
     <table class="table table-striped table-bordered">
         <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Edit</th>
+            <th>ID</th>
+            <th>Date</th>
+            <th></th>
             <th>Delete</th>
         </tr>
-        <c:forEach var="user" items="${users}">
+        <c:forEach var="reservation" items="${users}">
             <tr>
-                <td>${user.username}</td>
-                <td>${user.email}</td>
+                <td>${reservation.facilityID}</td>
+                <td>${reservation.date}</td>
                 <td>
-                    <a href="user/edit/${user.id}" class="btn btn-success">Edit</a>
+
                 </td>
                 <td>
-                    <a href="user/delete/${user.id}" class="btn btn-success">Delete</a>
+                    <a href="deletereservation/${reservation.id}" methods="get" class="btn btn-success">Delete</a>
                 </td>
             </tr>
         </c:forEach>
 
     </table>
 
+    <c:forEach var="facility" items="${facilities}">
+        <tr>
+            <td>${facility.name}</td>
+            <td>
+                Date: <form:input path="date"/>
+            </td>
+            <td>
+                <a href="makereservation/${date}/${facility}" methods="get" class="btn btn-success">Delete</a>
+            </td>
+        </tr>
+    </c:forEach>
 </c:if>
+
     </body>
     </html>

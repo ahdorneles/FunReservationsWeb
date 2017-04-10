@@ -6,6 +6,7 @@ import org.academiadecodigo.bootcamp.persistence.hibernate.HibernateSessionManag
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.criterion.Projections;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,8 @@ public abstract class HibernateDao<T> implements Dao<T> {
 
 
     private Class<T> type;
+
+    @Autowired
     protected HibernateSessionManager hibernateSessionManager;
 
 
@@ -56,7 +59,11 @@ public abstract class HibernateDao<T> implements Dao<T> {
 
         try {
 
-            hibernateSessionManager.getSession().delete(dao);
+            hibernateSessionManager.
+
+                    getSession().
+
+                    delete(dao);
 
         } catch (HibernateException hex) {
             throw new TransactionException(hex);

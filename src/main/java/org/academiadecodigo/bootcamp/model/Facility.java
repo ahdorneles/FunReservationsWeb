@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 
-public class Entity {
+public class Facility {
     private int ID;
     private String name;
     private FacilityType type;
@@ -16,10 +16,10 @@ public class Entity {
     private int phone;
     private String password;
 
-    public Entity() {
+    public Facility() {
     }
 
-    public Entity(int ID, String password, FacilityType type, String name, String address, int phone, String info){
+    public Facility(int ID, String password, FacilityType type, String name, String address, int phone, String info){
 
         this.ID = ID;
         this.password = password;

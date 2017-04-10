@@ -1,20 +1,20 @@
 package org.academiadecodigo.bootcamp.service;
 
-import org.academiadecodigo.bootcamp.model.Entity;
 import org.academiadecodigo.bootcamp.model.Reservation;
+import org.academiadecodigo.bootcamp.model.User;
 
-import java.util.GregorianCalendar;
+import java.sql.Date;
 import java.util.List;
 
 /**
  * Created by codecadet on 09/04/17.
  */
 public interface ReservationService {
-    List<Reservation> findReservations(Integer id);
+    List<Reservation> findUserReservations(Integer userID);
 
-    List<Reservation> freeReservations(Integer facilityID, GregorianCalendar date);
+    List<Reservation> freeReservations(Integer facilityID, Date date);
 
-    void makeReservation(Integer facilityID, GregorianCalendar date);
+    void makeReservation(User user, Integer facilityID, Date date);
 
     void deleteReservation(Integer reservationID);
 }

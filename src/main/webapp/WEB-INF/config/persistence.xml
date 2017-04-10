@@ -38,6 +38,7 @@
             <list>
                 <value>persistence/User.hbm.xml</value>
                 <value>persistence/Entity.hbm.xml</value>
+                <value>persistence/Reservation.hbm.xml</value>
             </list>
         </property>
     </bean>

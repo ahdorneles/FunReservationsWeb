@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="org.academiadecodigo.bootcamp.model.Entity" table="facility" lazy="false">
+    <class name="org.academiadecodigo.bootcamp.model.Facility" table="facility" lazy="false">
 
         <id name="ID" column="facility_id" type="integer">
             <generator class="identity"/>

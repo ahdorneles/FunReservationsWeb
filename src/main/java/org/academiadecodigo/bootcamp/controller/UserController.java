@@ -1,6 +1,8 @@
 package org.academiadecodigo.bootcamp.controller;
 
 import org.academiadecodigo.bootcamp.model.User;
+import org.academiadecodigo.bootcamp.model.dao.ReservationDao;
+import org.academiadecodigo.bootcamp.service.EntityService;
 import org.academiadecodigo.bootcamp.service.UserService;
 import org.academiadecodigo.bootcamp.utils.Names;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +23,24 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ReservationDao reservationDao;
+
+    @Autowired
+    private EntityService entityService;
+
     @RequestMapping(method = RequestMethod.GET, value = "/users")
-    public String listUsers(Model model) {
-        model.addAttribute(Names.USER_LIST, userService.findAll());
+    public String listUsers(Model model, @ModelAttribute ("user") User user) {
+
+        System.out.println("USER ID NO USER CONTROLLER" + user.getId());
+        model.addAttribute(Names.USER_LIST, reservationDao.findByUserid(user.getId()));
+
+        System.out.println(reservationDao.findByUserid(user.getId()));
         return "main";
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/user/add")
-    public String addUser(Model model, @ModelAttribute ("user") User user,  RedirectAttributes redirectAttributes) {
+    public String addUser(Model model, @ModelAttribute("user") User user, RedirectAttributes redirectAttributes) {
 
         User tempUser = (User) userService.findByName(user.getUsername());
 
@@ -72,8 +84,6 @@ public class UserController {
 
         System.out.println("id que vem " + id);
         User user = (User) userService.findById(id);
-
-
 
 
         System.out.println(user.getId());

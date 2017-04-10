@@ -8,11 +8,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <tml>
 <head>
-    <title>Login Form</title>
+    <title>FunReservations</title>
 </head>
 <body>
 <form:form method="post" modelAttribute="user">
-    <p>Name:
+    <p>Username:
         <form:input path="username"/>
         <form:errors path="username" cssClass="error"/>
 
@@ -22,6 +22,7 @@
     <input type="submit" value="Login"/>
 </form:form>
 
+<img src="http://campagnolotoronto.com/wp-content/themes/campagnolo/library/img/reservations.png"/>
 
 <div style="color:red">${error}</div>
 </body>

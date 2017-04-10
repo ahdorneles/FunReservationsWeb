@@ -1,6 +1,6 @@
 package org.academiadecodigo.bootcamp.model.dao.hibernate;
 
-import org.academiadecodigo.bootcamp.model.Entity;
+import org.academiadecodigo.bootcamp.model.Facility;
 import org.academiadecodigo.bootcamp.model.dao.EntityDao;
 import org.academiadecodigo.bootcamp.persistence.hibernate.HibernateSessionManager;
 import org.springframework.stereotype.Repository;
@@ -12,18 +12,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public class HibernateEntityDao extends HibernateDao<Entity> implements EntityDao {
+public class HibernateEntityDao extends HibernateDao<Facility> implements EntityDao {
 
 
     public HibernateEntityDao() {
     }
 
     public HibernateEntityDao(HibernateSessionManager sessionManager) {
-        super(Entity.class, sessionManager);
+        super(Facility.class, sessionManager);
     }
 
     @Override
-    public Entity findByName(String name) {
+    public Facility findByName(String name) {
         return null;
     }
 }

@@ -1,6 +1,6 @@
 package org.academiadecodigo.bootcamp.service;
 
-import org.academiadecodigo.bootcamp.model.Entity;
+import org.academiadecodigo.bootcamp.model.Facility;
 import org.academiadecodigo.bootcamp.model.dao.EntityDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.util.List;
  */
 
 @Service
-public class EntityServiceImpl implements EntityService<Entity> {
+public class EntityServiceImpl implements EntityService<Facility> {
 
     @Autowired
     private EntityDao entityDao;
@@ -26,17 +26,17 @@ public class EntityServiceImpl implements EntityService<Entity> {
 
 
     @Override
-    public void edit(Entity type) {
+    public void edit(Facility type) {
 
     }
 
     @Override
-    public void delete(Entity type) {
+    public void delete(Facility type) {
 
     }
 
     @Override
-    public Entity findById(Integer id) {
+    public Facility findById(Integer id) {
         return null;
     }
 
@@ -51,18 +51,18 @@ public class EntityServiceImpl implements EntityService<Entity> {
 
     public boolean authenticate(String username, String password) {
 
-        Entity entity = entityDao.findByName(username);
-        return entity != null && entity.getPassword().equals(password);
+        Facility facility = entityDao.findByName(username);
+        return facility != null && facility.getPassword().equals(password);
 
     }
 
     @Override
-    public void add(Entity type) {
+    public void add(Facility type) {
 
     }
 
     @Override
-    public Entity findByName(String username) {
+    public Facility findByName(String username) {
         return null;
     }
 
@@ -88,7 +88,7 @@ public class EntityServiceImpl implements EntityService<Entity> {
     }
 
     @Override
-    public List<Entity> findAll() {
-        return null;
+    public List<Facility> findAll() {
+        return entityDao.findAll();
     }
 }

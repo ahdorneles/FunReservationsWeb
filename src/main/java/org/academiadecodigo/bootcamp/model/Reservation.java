@@ -1,5 +1,7 @@
 package org.academiadecodigo.bootcamp.model;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import java.sql.Date;
 import java.util.GregorianCalendar;
 
 /**
@@ -8,9 +10,40 @@ import java.util.GregorianCalendar;
 public class Reservation {
 
     private Integer id;
-    private String facility;
-    private String user;
-    private GregorianCalendar date;
+    private Integer facilityID;
+    private Integer userID;
+    private Date date;
+
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public Reservation() {
+    }
+
+    public Integer getFacilityID() {
+        return facilityID;
+    }
+
+    public void setFacilityID(Integer facilityID) {
+        this.facilityID = facilityID;
+    }
+
+    public Integer getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Integer userID) {
+        this.userID = userID;
+    }
+
+    public Reservation(Integer userID, Integer facilityID, Date date) {
+    }
 
     public Integer getId() {
         return id;
@@ -20,27 +53,20 @@ public class Reservation {
         this.id = id;
     }
 
-    public String getFacility() {
-        return facility;
+    public Integer getFacility() {
+        return facilityID;
     }
 
-    public void setFacility(String facility) {
-        this.facility = facility;
+    public void setFacility(Integer facilityID) {
+        this.facilityID = facilityID;
     }
 
-    public String getUser() {
-        return user;
+    public Integer getUser() {
+        return userID;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUser(Integer userID) {
+        this.userID = userID;
     }
 
-    public GregorianCalendar getDate() {
-        return date;
-    }
-
-    public void setDate(GregorianCalendar date) {
-        this.date = date;
-    }
 }
